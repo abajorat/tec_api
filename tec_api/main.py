@@ -1,11 +1,7 @@
 from fastapi import FastAPI, Depends, Path, Query
-from schemas import Album
-from schemas import AlbumOut
-from schemas import AlbumOutNew
-from schemas import AlbumName
-from authentication import verify_token
 import names
-
+from schemas import Album, AlbumName, AlbumOut, AlbumOutNew
+from authentication import verify_token
 app = FastAPI()
 
 
@@ -37,7 +33,7 @@ song_db = ["evermore", "willow", "champagne problems", "gold rush",
 
 
 @app.get("/songs/{song_id}")
-async def get_song(song_id: int = Path(..., title="The ID of the song", le=13)):
+async def get_song(song_id: int = Path(..., title="The ID of the song", le=12)):
     return {"song_id": song_id, "song_name": song_db[song_id]}
 
 

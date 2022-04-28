@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 from enum import Enum
 
 
+
 class AlbumName(str, Enum):
     folklore = "folklore"
     evermore = "evermore"
