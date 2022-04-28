@@ -1,6 +1,6 @@
 FROM python:3.7
 
-RUN pip install fastapi uvicorn spacy faker
+RUN pip install fastapi uvicorn spacy
 
 COPY tec_api /api/api
 
@@ -10,4 +10,4 @@ WORKDIR /api
 EXPOSE 8000
 
 ENTRYPOINT ["uvicorn"]
-CMD ["tec_api.main:app", "--host", "0.0.0.0"]
+CMD ["api.main:app", "--host", "0.0.0.0"]
