@@ -1,8 +1,8 @@
 FROM python:3.7
 
-RUN pip install fastapi uvicorn spacy
+RUN pip install fastapi uvicorn spacy faker
 
-COPY ./api /api/api
+COPY tec_api /api/api
 
 ENV PYTHONPATH=/api
 WORKDIR /api
