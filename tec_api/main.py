@@ -2,6 +2,7 @@ from fastapi import FastAPI, Depends, Path, Query
 import names
 from schemas import Album, AlbumName, AlbumOut, AlbumOutNew
 from authentication import verify_token
+from pydantic import StrictStr
 app = FastAPI()
 
 
@@ -16,7 +17,7 @@ async def root():
 
 
 @app.get("/name/{name}")
-async def root():
+async def root(name: StrictStr):
     return {"message": f"Hello {name}"}
 
 

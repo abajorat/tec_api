@@ -17,8 +17,8 @@ async def print_numbers():
 async def main():
     task1 = asyncio.create_task(fetch_data())
     task2 = asyncio.create_task(print_numbers())
-    value = await task1
-    print(value)
+    # value = await task1
+    # print(value)
     await task2
 
 
