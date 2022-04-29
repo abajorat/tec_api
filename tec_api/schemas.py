@@ -12,17 +12,17 @@ class AlbumName(str, Enum):
 
 class Album(BaseModel):
     name: str
-    description: str = None
+    description: str = 'No description given'
     price: confloat(gt=0)
     discount: float = None
 
 
 class AlbumOut(BaseModel):
     name: str
-    description: str = None
+    description: str = 'No description given'
 
 
 class AlbumOutNew(BaseModel):
     name: str
-    description: str = None
+    description: str = 'No description given'
     price_with_discount: float
