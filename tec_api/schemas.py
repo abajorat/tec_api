@@ -1,4 +1,3 @@
-from typing import Optional
 from pydantic import BaseModel, Field, confloat
 from enum import Enum
 
@@ -13,20 +12,17 @@ class AlbumName(str, Enum):
 
 class Album(BaseModel):
     name: str
-    # description: Optional[str] = None
-    description: Optional[str] = Field(
-        None, title="The description of the item", max_length=300
-    )
+    description: str = None
     price: confloat(gt=0)
-    discount: Optional[float] = None
+    discount: float = None
 
 
 class AlbumOut(BaseModel):
     name: str
-    description: Optional[str] = None
+    description: str = None
 
 
 class AlbumOutNew(BaseModel):
     name: str
-    description: Optional[str] = None
+    description: str = None
     price_with_discount: float
