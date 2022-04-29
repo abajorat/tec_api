@@ -1,6 +1,7 @@
 from typing import Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, confloat
 from enum import Enum
+
 
 
 
@@ -16,8 +17,7 @@ class Album(BaseModel):
     description: Optional[str] = Field(
         None, title="The description of the item", max_length=300
     )
-    # price: float
-    price: float = Field(..., gt=0, description="The price must be greater than zero")
+    price: confloat(gt=0, description="The price must be greater than zero")
     discount: Optional[float] = None
 
 
