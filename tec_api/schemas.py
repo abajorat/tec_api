@@ -17,7 +17,7 @@ class Album(BaseModel):
     description: Optional[str] = Field(
         None, title="The description of the item", max_length=300
     )
-    price: confloat(gt=0, description="The price must be greater than zero")
+    price: confloat(gt=0)
     discount: Optional[float] = None
 
 
