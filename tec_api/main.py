@@ -41,13 +41,13 @@ async def get_song(song_id: int = Path(..., title="The ID of the song", le=12)):
 async def get_album(album_name: AlbumName):
     if album_name == AlbumName.folklore:
         return {"album_name": album_name, "year": 2020}
-    if album_name.value == "evermore":
+    if album_name.value == AlbumName.evermore:
         return {"album_name": album_name, "year": 2020}
     return {"album_name": album_name, "year": 2021}
 
 
 @app.get("/song_list")
-async def get_song_list(skip: int = 0, limit: int = 10):
+async def get_song_list(skip: int = Query(..., le=12), limit: int = Query(10, le=12)):
     return song_db[skip: skip + limit]
 
 
