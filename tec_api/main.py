@@ -24,5 +24,5 @@ song_db = ["evermore", "willow", "champagne problems", "gold rush",
            "ivy", "cowboy like me", "long story short"]
 
 @app.get("/songs/{song_id}")
-async def get_song(song_id):
+async def get_song(song_id: int):
     return {"song_id": song_id, "song_name": song_db[song_id]}
