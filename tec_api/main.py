@@ -27,7 +27,14 @@ song_db = ["evermore", "willow", "champagne problems", "gold rush",
            "ivy", "cowboy like me", "long story short"]
 
 
+
 @app.get("/songs/{song_id}")
 async def get_song(song_id: int = Path(
   ...,  le=12)):
     return {"song_id": song_id, "song_name": song_db[song_id]}
+
+
+@app.get("/songs/evermore")
+async def get_evermore():
+    return {"song_id": "0",
+            "song_name": "evermore"}
