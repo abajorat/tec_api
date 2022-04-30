@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 import names
+from pydantic import StrictStr
+
 app = FastAPI()
 
 
@@ -15,7 +17,7 @@ async def random_name():
     return {"message": f"Hello {names.get_first_name()}"}
 
 @app.get("/name/{name}")
-async def get_name(name):
+async def get_name(name: StrictStr):
     return {"message": f"Hello {name}"}
 
 song_db = ["evermore", "willow", "champagne problems", "gold rush",
