@@ -13,3 +13,7 @@ async def root():
 @app.get("/random_name")
 async def random_name():
     return {"message": f"Hello {names.get_first_name()}"}
+
+@app.get("/name/{name}")
+async def get_name(name):
+    return {"message": f"Hello {name}"}
