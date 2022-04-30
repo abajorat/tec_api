@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, Path, Query
 import names
-from schemas import Album, AlbumName, AlbumOut
-from authentication import verify_token
+from .schemas import Album, AlbumOut, AlbumName
+from .authentication import verify_token
 from pydantic import StrictStr
 app = FastAPI()
 
@@ -71,3 +71,7 @@ async def create_album(album: Album):
 @app.get("/check", dependencies=[Depends(verify_token)])
 async def home():
     return {"detail": "Welcome home"}
+
+@app.get("/sum/{v1}/{v2}")
+async def sum(v1: int, v2: int):
+    return {"resultado": v1+v2}

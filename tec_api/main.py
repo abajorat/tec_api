@@ -3,6 +3,7 @@ import names
 from pydantic import StrictStr
 from fastapi import Path, Query
 from enum import Enum
+from calculator import calculator as calc
 
 app = FastAPI()
 
@@ -27,7 +28,7 @@ async def random_name():
 
 @app.get("/name/{name}")
 async def get_name(name: StrictStr):
-    return {"message": f"Hello {name}"}
+    return {"message": f"Hello {type(name)}"}
 
 song_db = ["evermore", "willow", "champagne problems", "gold rush",
            "'tis the damn season'", "tolerate it", "no body no crime",
@@ -62,3 +63,11 @@ async def get_album(album_name: AlbumName):
 @app.get("/song_list")
 async def get_song_list(skip: int = Query(..., le=12), limit: int = Query(10, le=12)):
     return song_db[skip: skip + limit]
+
+    
+
+
+
+
+
+
