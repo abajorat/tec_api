@@ -3,7 +3,6 @@ import names
 from pydantic import StrictStr
 from fastapi import Path, Query
 from enum import Enum
-from calculator import calculator as calc
 
 app = FastAPI()
 
