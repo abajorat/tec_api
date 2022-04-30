@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, Path, Query
 import names
 from .schemas import Album, AlbumName
-from .authentication import verify_token
+# from .authentication import verify_token
 from pydantic import StrictStr
 app = FastAPI()
 

@@ -9,7 +9,7 @@ class AlbumName(str, Enum):
     
 class Album(BaseModel):
     name: str
-    description: str = None   
+    description: str = 'Description missing'
     price: confloat(gt=0) 
     discount:float = 0
 

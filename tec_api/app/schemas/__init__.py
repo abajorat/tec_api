@@ -1,1 +1,1 @@
-from .basic import Album, AlbumOut, AlbumName
+from .basic import Album,  AlbumName
