@@ -2,9 +2,17 @@ from fastapi import FastAPI
 import names
 from pydantic import StrictStr
 from fastapi import Path
+from enum import Enum
 
 app = FastAPI()
 
+
+class AlbumName(str, Enum):
+    folklore = "folklore"
+    evermore = "evermore"
+    red = "red"
+    
+    
 
 # Path operation decorator
 @app.get("/")
@@ -38,3 +46,12 @@ async def get_song(song_id: int = Path(
 async def get_evermore():
     return {"song_id": "0",
             "song_name": "evermore"}
+    
+
+@app.get("/album/{album_name}")
+async def get_album(album_name: AlbumName):
+    if album_name == AlbumName.folklore:
+        return {"album_name": album_name, "year": 2020}
+    if album_name.value == "evermore":
+        return {"album_name": album_name, "year": 2020}
+    return {"album_name": album_name, "year": 2021}
