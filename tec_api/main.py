@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import names
 from pydantic import StrictStr
-from fastapi import Path
+from fastapi import Path, Query
 from enum import Enum
 
 app = FastAPI()
@@ -60,5 +60,5 @@ async def get_album(album_name: AlbumName):
 
 
 @app.get("/song_list")
-async def get_song_list(skip: int = 0, limit: int = 10):
+async def get_song_list(skip: int = Query(..., le=12), limit: int = Query(10, le=12)):
     return song_db[skip: skip + limit]
