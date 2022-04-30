@@ -13,3 +13,7 @@ class Album(BaseModel):
     price: confloat(gt=0) 
     discount:float = 0
 
+class AlbumOut(BaseModel):
+    name: str
+    description: str = None  
+    new_price: float = None 

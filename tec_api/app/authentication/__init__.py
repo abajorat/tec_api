@@ -1,1 +1,1 @@
-# from .verify import verify_token
+from .verify import verify_token

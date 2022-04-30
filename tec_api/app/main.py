@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, Path, Query
 import names
-from .schemas import Album, AlbumName
+from .schemas import Album, AlbumOut, AlbumName
 # from .authentication import verify_token
 from pydantic import StrictStr
 app = FastAPI()
@@ -51,8 +51,17 @@ async def get_album(album_name: AlbumName):
 async def get_song_list(skip: int = Query(..., le=12), limit: int = Query(10, le=12)):
     return song_db[skip: skip + limit]
 
+albums = []
 
-@app.post("/albums/")
+
+@app.post("/albums/", response_model=AlbumOut)
 async def create_album(album: Album):
     album_dict = album.dict()
+    albums.append(album)
+    new_price = (album.price - album.discount * album.price * 0.01)
+    album_dict.update({"new_price": new_price})
     return album_dict
+
+@app.get("/albums/{album_id}", response_model=AlbumOut)
+async def get_album(album_id: int):
+    return albums[album_id]
