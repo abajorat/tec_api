@@ -52,7 +52,7 @@ async def get_song_list(skip: int = Query(..., le=12), limit: int = Query(10, le
     return song_db[skip: skip + limit]
 #
 #
-# @app.post("/albums/", response_model=AlbumOut)
+# @app.post("/albums/")
 # async def create_album(album: Album):
 #     album_dict = album.dict()
 #     new_price = (album.price - album.discount * album.price * 0.01)

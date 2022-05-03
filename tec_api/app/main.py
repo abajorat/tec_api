@@ -73,3 +73,14 @@ async def get_album(album_id: int):
 @app.get("/check", dependencies=[Depends(verify_token)])
 async def home():
     return {"detail": "Welcome home"}
+
+import time
+import asyncio
+@app.get("/sync")
+def home():
+    time.sleep(5)
+    return {"detail": "Welcome home"}
+
+@app.get("/sync1")
+def home():
+    return {"detail": "Welcome home"}
