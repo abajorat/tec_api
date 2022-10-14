@@ -23,6 +23,7 @@ jobs:
     steps:
     - name: Run package creation
       run: |
+        cd ..
         ls
         poetry build
     - uses: "marvinpinto/action-automatic-releases@latest"
