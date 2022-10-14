@@ -44,4 +44,5 @@ jobs:
         key: ${{ secrets.KEY }}
         script: |
           pip install https://github.com/abajorat/tec_api/releases/download/v0.1.0/tec_api-0.1.0-py3-none-any.whl
+          pip install uvicorn
           uvicorn tec_api.main:app --host 0.0.0.0 --reload
