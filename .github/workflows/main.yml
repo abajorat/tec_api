@@ -17,17 +17,13 @@ jobs:
     name: Build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    container:
+      image: docker://simbachain/poetry-3.8
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up python 3.7
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.7
     - name: Run package creation
       run: |
-        python -m pip install --user --upgrade build
-        python -m build
+        poetry build
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
