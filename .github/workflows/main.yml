@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v3
+    # - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
       with:
         python-version: "3.8"
@@ -43,5 +43,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         script: |
-          pip install https://github.com/abajorat/tec_api/releases/tag/v0.1.0
+          pip install https://github.com/abajorat/tec_api/releases/download/v0.1.0/tec_api-0.1.0-py3-none-any.whl
           uvicorn tec_api.main:app --host 0.0.0.0 --reload
