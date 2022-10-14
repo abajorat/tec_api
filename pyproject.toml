@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "tec_api"
+version = "0.1.0"
+description = ""
+authors = ["Andre Bajorat"]
+license = "MIT"
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.85.0"
+names = "^0.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+pythonpath = [
+  "src"
+]
