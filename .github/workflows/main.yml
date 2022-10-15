@@ -28,5 +28,5 @@ jobs:
             rm -rf tec_api
             git clone git@github.com:abajorat/tec_api.git
             cd tec_api
-            docker-compose build
-            docker-compose up -d
+            docker compose build
+            docker compose up -d
