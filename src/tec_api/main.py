@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 import names
 from pydantic import StrictStr
 from enum import Enum
 from pydantic import BaseModel, NegativeInt, PositiveInt, confloat, conlist, constr
+from authentication import verify_token
 
 app = FastAPI()
 
@@ -26,7 +27,7 @@ class AlbumName(str, Enum):
     red = "red"
 
 
-@app.get("/")
+@app.get("/", dependencies=[Depends(verify_token)])
 async def root():
     return {"message": "Hello World"}
 
