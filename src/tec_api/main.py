@@ -22,6 +22,11 @@ async def random_name():
     return {"message": f"Hello {names.get_first_name()}"}
 
 
+@app.get("/name/andre")
+async def get_evermore():
+    return {"Message": "Hello Hans"}
+
+
 @app.get("/name/{name}")
 async def get_name(name: StrictStr):
     return {"message": f"Hello {name}"}
